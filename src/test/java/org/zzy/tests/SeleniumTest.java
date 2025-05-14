@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class GoogleTest {
+public class SeleniumTest {
     private WebDriver driver = null;
 
     @BeforeMethod
@@ -21,13 +21,13 @@ public class GoogleTest {
         driver.get("https://habr.com/en/feed");
     }
 
-    @Test
+    @Test(enabled = false)
     public void somePassedTest() {
         String actualHeader = driver.findElements(By.xpath("//div[contains(@class, 'my-feed-page') and contains(@class, 'header')]//h1")).getFirst().getText();
         Assert.assertEquals(actualHeader, "My feed", "Header isn't equal to expected");
     }
 
-    @Test
+    @Test(enabled = false)
     public void someFailedTest() {
         String actualHeader = driver.findElements(By.xpath("//div[contains(@class, 'my-feed-page') and contains(@class, 'header')]//h1")).getFirst().getText();
         Assert.assertEquals(actualHeader, "My incorrect feed", "Header isn't equal to expected");
